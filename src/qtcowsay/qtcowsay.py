@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: MIT
 
-import subprocess
 import sys
 
+import cowsay
 from PyQt6 import QtGui, QtWidgets
 
 
@@ -51,18 +51,9 @@ class MainWindow(QtWidgets.QMainWindow):
         font.setStyleHint(QtGui.QFont.StyleHint.TypeWriter)
         self.label.setFont(font)
 
-        # run cowsay
-        p = subprocess.Popen(
-            [
-                f"cowsay -t '{text}'",
-            ],
-            stdout=subprocess.PIPE,
-            shell=True,  # noqa: S602
-        )
-
         # set output to label
-        out = p.communicate()[0]
-        self.label.setText(out.decode("utf-8"))
+        out = cowsay.get_output_string('cow', text)
+        self.label.setText(out)
 
 
 def run():
