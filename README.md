@@ -15,7 +15,7 @@ pip install .
 ## Usage
 
 ```bash
-cd src
+cd src/qtcowsay
 python -m qtcowsay
 ```
 

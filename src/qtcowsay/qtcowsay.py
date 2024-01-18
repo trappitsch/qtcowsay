@@ -54,7 +54,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # run cowsay
         p = subprocess.Popen(
             [
-                f"pycowsay '{text}'",
+                f"cowsay -t '{text}'",
             ],
             stdout=subprocess.PIPE,
             shell=True,  # noqa: S602
