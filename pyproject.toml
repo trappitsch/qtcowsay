@@ -1,7 +1,7 @@
 [project]
 name = "qtcowsay"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.1"
+description = "PyQt6 wrapper for qtcowsay."
 authors = [
     { name = "Reto Trappitsch", email = "reto@galactic-forensics.space" }
 ]
