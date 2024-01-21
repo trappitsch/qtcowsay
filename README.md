@@ -1,6 +1,6 @@
 # qtcowsay
 
-A simple QtApplication based on [pycowsay](https://github.com/cs01/pycowsay).
+A simple QtApplication based on [cowsay](https://github.com/VaasuDevanS/cowsay-python).
 
 ## Installation
 
@@ -15,9 +15,10 @@ pip install .
 ## Usage
 
 ```bash
-cd src/qtcowsay
-python -m qtcowsay
+qtcowsay
 ```
+
+This will open a GUI window wrapping around `cowsay`.
 
 ## License
 

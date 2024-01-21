@@ -15,11 +15,21 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.setWindowTitle("QtCowSay")
 
+        # description label
+        desc = QtWidgets.QLabel("Enter text to be said and select character")
+
         # entry for what to say
         self.entry = QtWidgets.QLineEdit()
 
+        # select character
+        self.character = QtWidgets.QComboBox()
+        self.character.setToolTip("Select the character to say something")
+        self.character.addItems(cowsay.char_names)
+        self.character.setCurrentText("cow")
+
         # label to print
-        self.label = QtWidgets.QLabel("")
+        self.print_area = QtWidgets.QLabel("")
+        self.print_area.setToolTip("The cow says...")
 
         # buttons
         button_print = QtWidgets.QPushButton("Say...")
@@ -36,8 +46,10 @@ class MainWindow(QtWidgets.QMainWindow):
         button_layout.addWidget(button_print)
         button_layout.addWidget(button_exit)
 
+        layout.addWidget(desc)
         layout.addWidget(self.entry)
-        layout.addWidget(self.label)
+        layout.addWidget(self.character)
+        layout.addWidget(self.print_area)
         layout.addLayout(button_layout)
         widget.setLayout(layout)
         self.setCentralWidget(widget)
@@ -49,11 +61,14 @@ class MainWindow(QtWidgets.QMainWindow):
         # set font of label
         font = QtGui.QFont("Monospace", 12)
         font.setStyleHint(QtGui.QFont.StyleHint.TypeWriter)
-        self.label.setFont(font)
+        self.print_area.setFont(font)
+
+        # character
+        character = self.character.currentText()
 
         # set output to label
-        out = cowsay.get_output_string('cow', text)
-        self.label.setText(out)
+        out = cowsay.get_output_string(character, text)
+        self.print_area.setText(out)
 
 
 def run():

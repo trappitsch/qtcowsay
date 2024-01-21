@@ -1,7 +1,5 @@
-# SPDX-FileCopyrightText: 2024-present Reto Trappitsch <reto@galactic-forensics.space>
-#
-# SPDX-License-Identifier: MIT
+# Init file for qtcowsay.
 
-from . import qtcowsay
+from .qtcowsay import run
 
-qtcowsay.run()
+__all__ = ["run"]
