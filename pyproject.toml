@@ -1,6 +1,6 @@
 [project]
 name = "qtcowsay"
-version = "0.0.1"
+version = "0.0.2"
 description = "PyQt6 wrapper for qtcowsay."
 authors = [
     { name = "Reto Trappitsch", email = "reto@galactic-forensics.space" }
@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "cowsay>=6.1",
     "PyQt6>=6.6.1",
+    "ipython>=8.12.3",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -27,7 +28,9 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "ruff>=0.1.14",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
