@@ -67,7 +67,12 @@ class MainWindow(QtWidgets.QMainWindow):
         character = self.character.currentText()
 
         # set output to label
-        out = cowsay.get_output_string(character, text)
+        try:
+            out = cowsay.get_output_string(character, text)
+        except cowsay.CowsayError as e:
+            QtWidgets.QMessageBox.warning(self, "Input error", str(e))
+            return
+
         self.print_area.setText(out)
 
 
